@@ -4,6 +4,9 @@ import 'package:qtec_player/domain/video_player_domain/video_player_domain.dart'
 
 class VideoPlayerNotifier extends StateNotifier<VideoPlayerState>{
 
+  ///This class I am create for
+  ///My necessary state update with Riverpod State Notifier
+
   VideoPlayerDomain videoPlayerDomain;
   VideoPlayerNotifier({required this.videoPlayerDomain}):super(VideoPlayerState.init());
 
