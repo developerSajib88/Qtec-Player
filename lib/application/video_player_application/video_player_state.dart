@@ -29,9 +29,9 @@ class VideoPlayerState extends Equatable{
       videoRes: null
   );
 
-  ///CopyWith Function
-  ///This is I am creating for
-  ///Update state one by one
+  /// CopyWith Function
+  /// This is I am creating for
+  /// Update state one by one
   VideoPlayerState copyWith({
     bool? dataIsLoading,
     VideoRes? videoRes
