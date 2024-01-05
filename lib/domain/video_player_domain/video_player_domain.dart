@@ -1,0 +1,1 @@
+abstruct class VideoPlayerDomain {}
