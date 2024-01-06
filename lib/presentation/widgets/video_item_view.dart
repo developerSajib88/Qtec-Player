@@ -1,5 +1,6 @@
 import 'package:qtec_player/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
 class VideoItemView extends HookWidget{
   final String? thumbnailUri;
   final String? videoTitle;
@@ -24,7 +25,7 @@ class VideoItemView extends HookWidget{
 
     return SizedBox(
       width: 1.sw,
-      height: 350.h,
+      //height: 350.h,
       child: Column(
         children: [
 
@@ -46,7 +47,6 @@ class VideoItemView extends HookWidget{
               ),
             ).animate(onPlay: (controller) => controller.repeat())
                 .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                // delay: Duration(microseconds: 400),
                 duration: const Duration(seconds: 1)),
             imageErrorBuilder: (context,_, stackTrace) => Container(
               width: 1.sw,
@@ -57,7 +57,6 @@ class VideoItemView extends HookWidget{
               ),
             ).animate(onPlay: (controller) => controller.repeat())
                 .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                // delay: Duration(microseconds: 400),
                 duration: const Duration(seconds: 1)),
           ),
 
@@ -80,8 +79,8 @@ class VideoItemView extends HookWidget{
                     placeholderFit: BoxFit.cover,
                     fadeInDuration: const Duration(milliseconds: 500),
                     fadeOutDuration: const Duration(milliseconds: 1000),
-                    placeholderErrorBuilder: (context,_,stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 50.sp,),
-                    imageErrorBuilder: (context,_, stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 50.sp,),
+                    placeholderErrorBuilder: (context,_,stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
+                    imageErrorBuilder: (context,_, stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
                   ),
                 ),
 
