@@ -10,7 +10,8 @@ class CustomTextStyles{
   static TextStyle titleTextStyle = GoogleFonts.hindSiliguri(
     fontSize: 15.sp,
     fontWeight: FontWeight.w500,
-    color: ColorPalate.bgColor
+    color: ColorPalate.defaultWhite,
+    height: 0.h
   );
 
   /// This text style is make for
