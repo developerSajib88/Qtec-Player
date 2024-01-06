@@ -12,7 +12,7 @@ class ApiMethod{
   static Future<Map<String, dynamic>?> get(String url) async {
     try {
       final response = await http.get(Uri.parse(url),
-        headers: {}
+        headers: {"Content-Type": "application/json"}
       ).timeout(const Duration(seconds: 60));
 
       responseReport(method: "GET", response: response.body.toString());

@@ -14,7 +14,6 @@ class QtecPlayerApp extends HookConsumerWidget {
       splitScreenMode: true,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        scrollBehavior: const ScrollBehavior().copyWith(physics: const BouncingScrollPhysics()),
         routerConfig: AppRoutes.routes,
       ),
     );

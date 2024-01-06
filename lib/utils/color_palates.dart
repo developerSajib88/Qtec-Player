@@ -9,6 +9,7 @@ class ColorPalate{
   static Color get defaultRed => Colors.red;
   static Color get defaultPink => Colors.pink;
   static Color get defaultGreen => Colors.green;
+  static Color get defaultBlueGrey => Colors.blueGrey;
 
   /// Custom Color
   static Color get blackColor => const Color(0xff0F0F0F);
