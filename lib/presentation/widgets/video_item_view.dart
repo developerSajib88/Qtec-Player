@@ -29,35 +29,60 @@ class VideoItemView extends HookWidget{
       child: Column(
         children: [
 
-          FadeInImage.assetNetwork(
-            width: 1.sw,
-            height: 230.h,
-            image: thumbnailUri ?? "",
-            fit: BoxFit.cover,
-            placeholder: "",
-            placeholderFit: BoxFit.cover,
-            fadeInDuration: const Duration(milliseconds: 500),
-            fadeOutDuration: const Duration(milliseconds: 1000),
-            placeholderErrorBuilder: (context,_,stackTrace) => Container(
-              width: 1.sw,
-              height: 230.h,
-              decoration: BoxDecoration(
-                  borderRadius: radius4,
-                  color: ColorPalate.defaultBlueGrey
+          Stack(
+            children: [
+              FadeInImage.assetNetwork(
+                width: 1.sw,
+                height: 230.h,
+                image: thumbnailUri ?? "",
+                fit: BoxFit.cover,
+                placeholder: "",
+                placeholderFit: BoxFit.cover,
+                fadeInDuration: const Duration(milliseconds: 500),
+                fadeOutDuration: const Duration(milliseconds: 1000),
+                placeholderErrorBuilder: (context,_,stackTrace) => Container(
+                  width: 1.sw,
+                  height: 230.h,
+                  decoration: BoxDecoration(
+                      borderRadius: radius4,
+                      color: ColorPalate.defaultBlueGrey
+                  ),
+                ).animate(onPlay: (controller) => controller.repeat())
+                    .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
+                    duration: const Duration(seconds: 1)),
+                imageErrorBuilder: (context,_, stackTrace) => Container(
+                  width: 1.sw,
+                  height: 230.h,
+                  decoration: BoxDecoration(
+                      borderRadius: radius4,
+                      color: ColorPalate.defaultBlueGrey
+                  ),
+                ).animate(onPlay: (controller) => controller.repeat())
+                    .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
+                    duration: const Duration(seconds: 1)),
               ),
-            ).animate(onPlay: (controller) => controller.repeat())
-                .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                duration: const Duration(seconds: 1)),
-            imageErrorBuilder: (context,_, stackTrace) => Container(
-              width: 1.sw,
-              height: 230.h,
-              decoration: BoxDecoration(
-                  borderRadius: radius4,
-                  color: ColorPalate.defaultBlueGrey
-              ),
-            ).animate(onPlay: (controller) => controller.repeat())
-                .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                duration: const Duration(seconds: 1)),
+
+
+              Positioned(
+                bottom: 10,
+                right: 20,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
+                  decoration: BoxDecoration(
+                    borderRadius: radius4,
+                    color: ColorPalate.defaultBlack.withOpacity(0.5)
+                  ),
+                  child: Text(
+                    videoDuration ?? "0:00",
+                    style: CustomTextStyles.viewsAndPublishedStyle.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: ColorPalate.defaultWhite
+                    ),
+                  ),
+                ),
+              )
+
+            ],
           ),
 
 
