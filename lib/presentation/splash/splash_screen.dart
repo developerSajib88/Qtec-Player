@@ -15,10 +15,11 @@ class SplashScreen extends HookConsumerWidget {
     /// Use effect is as like initState method.
     /// When first time hook consumer widget first time build
     /// Then useEffect function is called.
-    /// Here i am using useEffect for navigate home screen
+    /// Here i am using useEffect for navigate home screen with go routing
     /// After 4 second
     useEffect((){
       Future.delayed(const Duration(milliseconds: 3000),(){
+        ///For Navigate Home Screen
         context.pushReplacement(HomeScreen.path);
       });
       return null;
