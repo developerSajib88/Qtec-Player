@@ -8,6 +8,10 @@ class QtecPlayerApp extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
+    /// Screen util is used for make
+    /// Pixel perfect responsive
+    /// User Interface according with screen height and width
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,

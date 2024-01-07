@@ -5,10 +5,14 @@ import 'package:qtec_player/core/dependecny_injection/dependency_injection.dart'
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
+  /// Here I am intialize between domain and Infrastructure
+  /// With get it dependency injector
   await di.init();
+
   runApp(const ProviderScope(
       child: QtecPlayerApp()
    )
   );
+
 }
 

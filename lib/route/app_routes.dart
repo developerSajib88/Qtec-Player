@@ -13,6 +13,7 @@ class AppRoutes{
       routes: [
 
         //Splash Screen Route
+        // And Initial route
         GoRoute(
           path: SplashScreen.path,
           pageBuilder: (context, state) {
