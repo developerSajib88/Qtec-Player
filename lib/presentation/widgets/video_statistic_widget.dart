@@ -23,9 +23,16 @@ class VideoStatisticWidget extends HookConsumerWidget {
           mainAxisAlignment: mainCenter,
           children: [
 
-            IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.favorite_border,color: ColorPalate.greyColor,size: 24.sp)
+            ClipRRect(
+              borderRadius: radiusCircle,
+              child: Material(
+                color: Colors.transparent,
+                child: IconButton(
+                    onPressed: (){},
+                    splashColor: ColorPalate.redColor,
+                    icon: Icon(Icons.favorite_border,color: ColorPalate.greyColor,size: 24.sp)
+                ),
+              ),
             ),
 
             Text("${TextConstants.MASH_ALLAH} 12k+",style: CustomTextStyles.statisticsTextStyle,)
@@ -40,9 +47,16 @@ class VideoStatisticWidget extends HookConsumerWidget {
           mainAxisAlignment: mainCenter,
           children: [
 
-            IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.thumb_up_alt_outlined,color: ColorPalate.greyColor,size: 24.sp)
+            ClipRRect(
+              borderRadius: radiusCircle,
+              child: Material(
+                color: Colors.transparent,
+                child: IconButton(
+                    onPressed: (){},
+                    splashColor: ColorPalate.redColor,
+                    icon: Icon(Icons.thumb_up_alt_outlined,color: ColorPalate.greyColor,size: 24.sp)
+                ),
+              ),
             ),
 
             Text("${TextConstants.LIKE} 15k+",style: CustomTextStyles.statisticsTextStyle,)
@@ -57,10 +71,19 @@ class VideoStatisticWidget extends HookConsumerWidget {
           mainAxisAlignment: mainCenter,
           children: [
 
-            IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.share,color: ColorPalate.greyColor,size: 24.sp)
+
+            ClipRRect(
+              borderRadius: radiusCircle,
+              child: Material(
+                color: Colors.transparent,
+                child: IconButton(
+                    onPressed: (){},
+                    splashColor: ColorPalate.redColor,
+                    icon: Icon(Icons.share,color: ColorPalate.greyColor,size: 24.sp)
+                ),
+              ),
             ),
+
 
             Text(TextConstants.SHARE,style: CustomTextStyles.statisticsTextStyle,)
 
@@ -73,9 +96,16 @@ class VideoStatisticWidget extends HookConsumerWidget {
           mainAxisAlignment: mainCenter,
           children: [
 
-            IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.flag_outlined,color: ColorPalate.greyColor,size: 24.sp)
+            ClipRRect(
+              borderRadius: radiusCircle,
+              child: Material(
+                color: Colors.transparent,
+                child: IconButton(
+                    onPressed: (){},
+                    splashColor: ColorPalate.redColor,
+                    icon: Icon(Icons.flag_outlined,color: ColorPalate.greyColor,size: 24.sp)
+                ),
+              ),
             ),
 
             Text(TextConstants.REPORT,style: CustomTextStyles.statisticsTextStyle,)
