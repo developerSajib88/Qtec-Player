@@ -119,6 +119,9 @@ class VideoViewScreen extends HookConsumerWidget {
                      gap12,
 
                      ChannelSubscribeWidget(
+                         channelId: videoPlayerState.videoRes?.results[videoIndex].channelId,
+                         totalSubscriber: videoPlayerState.videoRes?.results[videoIndex].channelSubscriber,
+                         channelName: videoPlayerState.videoRes?.results[videoIndex].channelName,
                          channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage
                      ),
 

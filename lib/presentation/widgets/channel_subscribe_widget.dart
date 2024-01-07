@@ -1,9 +1,16 @@
+import 'package:qtec_player/data/model/video_res.dart';
 import 'package:qtec_player/utils/utils.dart';
 class ChannelSubscribeWidget extends HookConsumerWidget {
+  final int? channelId;
   final String? channelImageUri;
+  final ChannelName? channelName;
+  final String? totalSubscriber;
   const ChannelSubscribeWidget({
     super.key,
-    required this.channelImageUri
+    required this.channelId,
+    required this.channelImageUri,
+    required this.channelName,
+    required this.totalSubscriber
   });
 
   @override
@@ -39,12 +46,15 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
             children: [
 
               Text(
-                "Sakib Live Tv",
+                channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
+                "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
+                "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
+                    "One Ummah" : "Sayed Tv Ts",
                 style: CustomTextStyles.channelNameTextStyle,
               ),
 
               Text(
-                "5M Subscribers",
+                "$totalSubscriber Subscribers",
                 style: CustomTextStyles.viewsAndPublishedStyle,
               ),
 
