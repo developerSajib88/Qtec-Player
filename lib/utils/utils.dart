@@ -9,3 +9,4 @@ export 'package:qtec_player/utils/constants/text_constants.dart';
 export 'package:qtec_player/utils/constants/ui_constants.dart';
 export 'package:qtec_player/utils/color_palates.dart';
 export 'package:qtec_player/utils/custom_text_styles.dart';
+

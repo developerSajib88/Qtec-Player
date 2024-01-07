@@ -13,7 +13,8 @@ class ApiServices{
   static Future<VideoRes?> getVideoRes()async {
     Map<String, dynamic>? response = await ApiMethod.get(ApiUrl.videoApiUrl);
     if (response != null){
-      return VideoRes.fromJson(response);
+      VideoRes videoRes = VideoRes.fromJson(response);
+      return videoRes;
     }else{
       return null;
     }

@@ -1,7 +1,7 @@
 class TextConstants {
 
   /// As usual text
-  static String get TRENDING_VIDEOS => "Trending Videos";
+  static String get TRENDING_VIDEOS => "TRENDING VIDEOS";
   static String get SUBSCRIBE => "Subscribe";
   static String get SUBSCRIBERS => "Subscribers";
   static String get COMMENTS => "Comments";

@@ -195,7 +195,7 @@ class Result {
     isLive: json["is_live"],
     channelImage: json["channel_image"],
     channelName: channelNameValues.map[json["channel_name"]]!,
-    channelUsername: channelUsernameValues.map[json["channel_username"]]!,
+    channelUsername: channelUsernameValues.map[json["channel_username"]],
     isVerified: json["is_verified"],
     channelSlug: channelSlugValues.map[json["channel_slug"]]!,
     channelSubscriber: json["channel_subscriber"],
@@ -239,8 +239,8 @@ enum ChannelName {
 }
 
 final channelNameValues = EnumValues({
-  "One Ummah": ChannelName.CHANNEL_NAME_ONE_UMMAH,
-  "One Ummah +": ChannelName.ONE_UMMAH,
+  "One Ummah +": ChannelName.CHANNEL_NAME_ONE_UMMAH,
+  "One Ummah": ChannelName.ONE_UMMAH,
   "Sakib Live TV": ChannelName.SAKIB_LIVE_TV,
   "Sayed TV TS": ChannelName.SAYED_TV_TS
 });
@@ -281,12 +281,14 @@ final objectTypeValues = EnumValues({
 
 enum Type {
   NASHEED,
+  OTHERS,
   TILAWAT,
   WAZ
 }
 
 final typeValues = EnumValues({
   "Nasheed": Type.NASHEED,
+  "Others": Type.OTHERS,
   "Tilawat": Type.TILAWAT,
   "Waz": Type.WAZ
 });
