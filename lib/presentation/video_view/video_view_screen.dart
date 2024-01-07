@@ -1,4 +1,5 @@
 import 'package:qtec_player/core/dependecny_injection/dependency_injection.dart';
+import 'package:qtec_player/presentation/widgets/widget.dart';
 import 'package:qtec_player/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -58,31 +59,59 @@ class VideoViewScreen extends HookConsumerWidget {
                 ),
               ),
 
-              Text(
-                videoPlayerState.videoRes?.results[videoIndex].title ?? "",
-                style: CustomTextStyles.titleTextStyle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                child: Column(
+                  crossAxisAlignment: crossStart,
+                  children: [
+                    Text(
+                      videoPlayerState.videoRes?.results[videoIndex].title ?? "",
+                      style: CustomTextStyles.titleTextStyle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                    Row(
+                      children: [
+
+                        Text(
+                          "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
+                          style: CustomTextStyles.viewsAndPublishedStyle,
+                        ),
+
+
+                        gap12,
+
+                        Text(
+                          videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
+                          timeago.format( videoPlayerState.videoRes!.results[videoIndex].createdAt.subtract(const Duration(minutes: 1))):"",
+                          style: CustomTextStyles.viewsAndPublishedStyle,
+                        ),
+                      ],
+                    ),
+
+
+                   // MASH ALLAH, LIKE, SHARE AND REPORT WIDGET
+                   const VideoStatisticWidget(
+                      videoID: 0,
+                      mashAllah: "12k",
+                      like: "15k",
+                   ),
+
+
+                   gap6,
+
+                   ChannelSubscribeWidget(
+                       channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage
+                   ),
+
+                  ],
+                ),
               ),
 
-              Row(
-                children: [
 
-                  Text(
-                    "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
-                    style: CustomTextStyles.viewsAndPublishedStyle,
-                  ),
+              Divider(color: ColorPalate.greyColor),
 
-
-                  gap12,
-
-                  Text(
-                    videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
-                    timeago.format( videoPlayerState.videoRes!.results[videoIndex].createdAt.subtract(const Duration(minutes: 1))):"",
-                    style: CustomTextStyles.viewsAndPublishedStyle,
-                  ),
-                ],
-              ),
 
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:qtec_player/presentation/widgets/loader/thumbnail_loader.dart';
 import 'package:qtec_player/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -40,26 +41,8 @@ class VideoItemView extends HookWidget{
                 placeholderFit: BoxFit.cover,
                 fadeInDuration: const Duration(milliseconds: 500),
                 fadeOutDuration: const Duration(milliseconds: 1000),
-                placeholderErrorBuilder: (context,_,stackTrace) => Container(
-                  width: 1.sw,
-                  height: 230.h,
-                  decoration: BoxDecoration(
-                      borderRadius: radius4,
-                      color: ColorPalate.defaultBlueGrey
-                  ),
-                ).animate(onPlay: (controller) => controller.repeat())
-                    .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                    duration: const Duration(seconds: 1)),
-                imageErrorBuilder: (context,_, stackTrace) => Container(
-                  width: 1.sw,
-                  height: 230.h,
-                  decoration: BoxDecoration(
-                      borderRadius: radius4,
-                      color: ColorPalate.defaultBlueGrey
-                  ),
-                ).animate(onPlay: (controller) => controller.repeat())
-                    .shimmer(color: ColorPalate.blackColor.withOpacity(0.4),
-                    duration: const Duration(seconds: 1)),
+                placeholderErrorBuilder: (context,_,stackTrace) => const ThumbnailLoader(),
+                imageErrorBuilder: (context,_, stackTrace) => const ThumbnailLoader()
               ),
 
 

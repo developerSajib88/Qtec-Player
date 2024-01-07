@@ -1,3 +1,4 @@
+import 'package:qtec_player/presentation/widgets/widget.dart';
 import 'package:qtec_player/utils/utils.dart';
 
 class HomePageLoader extends HookWidget {
@@ -14,18 +15,7 @@ class HomePageLoader extends HookWidget {
               child: Column(
                 children: [
 
-                  Container(
-                    width: 1.sw,
-                    height: 230.h,
-                    decoration: BoxDecoration(
-                      borderRadius: radius4,
-                      color: ColorPalate.defaultBlueGrey
-                    ),
-                  ).animate(onPlay: (controller) => controller.repeat())
-                      .shimmer(
-                      color: ColorPalate.blackColor.withOpacity(0.4),
-                      // delay: Duration(microseconds: 400),
-                      duration: const Duration(seconds: 1)),
+                  const ThumbnailLoader(),
 
 
                   Padding(
