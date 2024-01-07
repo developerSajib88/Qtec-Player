@@ -59,7 +59,7 @@ class CommentsWidget extends HookConsumerWidget {
             focusedBorder: OutlineInputBorder(
               borderRadius: radius8,
               borderSide: BorderSide(
-                  width: 2,
+                  width: 1,
                   color: ColorPalate.greyColor
               ),
             ),
@@ -67,7 +67,7 @@ class CommentsWidget extends HookConsumerWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: radius8,
               borderSide: BorderSide(
-                  width: 2,
+                  width: 1,
                   color: ColorPalate.greyColor
               ),
             ),

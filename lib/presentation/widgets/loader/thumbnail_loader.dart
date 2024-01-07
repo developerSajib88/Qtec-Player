@@ -9,7 +9,6 @@ class ThumbnailLoader extends HookWidget {
       width: 1.sw,
       height: 230.h,
       decoration: BoxDecoration(
-          borderRadius: radius4,
           color: ColorPalate.defaultBlueGrey
       ),
     ).animate(onPlay: (controller) => controller.repeat())

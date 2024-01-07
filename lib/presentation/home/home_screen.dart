@@ -35,7 +35,7 @@ class HomeScreen extends HookConsumerWidget {
                     color: ColorPalate.redColor,
                     displacement: 25.h,
                     backgroundColor: ColorPalate.defaultWhite,
-                    strokeWidth: 2.w,
+                    strokeWidth: 3.w,
                     child: Visibility(
                       visible: videoPlayerState.videoRes != null &&
                           videoPlayerState.dataIsLoading == false,
