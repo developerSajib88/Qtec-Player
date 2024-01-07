@@ -166,6 +166,7 @@ import 'package:gap/gap.dart';
   BorderRadius radius20 = BorderRadius.circular(20.r);
   BorderRadius radius22 = BorderRadius.circular(22.r);
   BorderRadius radius24 = BorderRadius.circular(24.r);
+  BorderRadius radiusCircle = BorderRadius.circular(100.r);
 
   Divider divider = Divider(
     height: 2.h,
