@@ -4,7 +4,12 @@ import 'package:qtec_player/utils/utils.dart';
 
 class VideoPlayerWidget extends HookConsumerWidget {
   final String videoUrl;
-  const VideoPlayerWidget({super.key, required this.videoUrl});
+  final bool isLive;
+  const VideoPlayerWidget({
+    super.key,
+    required this.videoUrl,
+    required this.isLive,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,7 +32,7 @@ class VideoPlayerWidget extends HookConsumerWidget {
               qualityStyle: CustomTextStyles.titleTextStyle,
               forwardAndBackwardBtSize: 30.0,
               playButtonIconSize: 40.0,
-              showLiveDirectButton: false,
+              showLiveDirectButton: isLive,
               playIcon: Icon(
                 Icons.play_circle_fill_rounded,
                 size: 40.sp, color: ColorPalate.redColor,

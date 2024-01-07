@@ -34,9 +34,12 @@ class VideoViewScreen extends HookConsumerWidget {
 
                 Visibility(
                   visible: videoPlayerState.videoIsPlay == false,
+
                   replacement: VideoPlayerWidget(
+                    isLive: videoPlayerState.videoRes?.results[videoIndex].isLive ?? false,
                     videoUrl: videoPlayerState.videoRes?.results[videoIndex].manifest ?? "",
                   ),
+
                   child: InkWell(
                     onTap: ()=>videoPlayerCtrl.videoStateUpdate(videoIsPlay: true),
                     child: Stack(
@@ -122,7 +125,8 @@ class VideoViewScreen extends HookConsumerWidget {
                          channelId: videoPlayerState.videoRes?.results[videoIndex].channelId,
                          totalSubscriber: videoPlayerState.videoRes?.results[videoIndex].channelSubscriber,
                          channelName: videoPlayerState.videoRes?.results[videoIndex].channelName,
-                         channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage
+                         channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage,
+                         channelIsVerified: videoPlayerState.videoRes?.results[videoIndex].isVerified,
                      ),
 
                     ],

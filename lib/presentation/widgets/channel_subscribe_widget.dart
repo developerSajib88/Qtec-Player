@@ -5,12 +5,14 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
   final String? channelImageUri;
   final ChannelName? channelName;
   final String? totalSubscriber;
+  final bool? channelIsVerified;
   const ChannelSubscribeWidget({
     super.key,
     required this.channelId,
     required this.channelImageUri,
     required this.channelName,
-    required this.totalSubscriber
+    required this.totalSubscriber,
+    required this.channelIsVerified
   });
 
   @override
@@ -45,12 +47,22 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
             mainAxisAlignment: mainStart,
             children: [
 
-              Text(
-                channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
-                "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
-                "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
-                    "One Ummah" : "Sayed Tv Ts",
-                style: CustomTextStyles.channelNameTextStyle,
+              Row(
+                children: [
+                  Text(
+                    channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
+                    "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
+                    "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
+                        "One Ummah" : "Sayed Tv Ts",
+                    style: CustomTextStyles.channelNameTextStyle,
+                  ),
+
+                  gap6,
+
+                  if(channelIsVerified ?? false)
+                  Icon(Icons.verified,color: ColorPalate.defaultBlueGrey,size: 15.sp,)
+
+                ],
               ),
 
               Text(
