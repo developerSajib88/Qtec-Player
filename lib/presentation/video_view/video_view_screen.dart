@@ -121,6 +121,8 @@ class VideoViewScreen extends HookConsumerWidget {
 
                      gap12,
 
+                     //For channel information
+                     // As like Channel name,image and verified channel and total subscribers button
                      ChannelSubscribeWidget(
                          channelId: videoPlayerState.videoRes?.results[videoIndex].channelId,
                          totalSubscriber: videoPlayerState.videoRes?.results[videoIndex].channelSubscriber,
