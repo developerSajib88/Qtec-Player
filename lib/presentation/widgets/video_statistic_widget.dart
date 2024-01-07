@@ -1,4 +1,5 @@
 
+import 'package:qtec_player/presentation/widgets/statistic_button.dart';
 import 'package:qtec_player/utils/utils.dart';
 
 class VideoStatisticWidget extends HookConsumerWidget {
@@ -18,103 +19,30 @@ class VideoStatisticWidget extends HookConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
 
-        Column(
-          crossAxisAlignment: crossCenter,
-          mainAxisAlignment: mainCenter,
-          children: [
+        StatisticButton(
+          text: "${TextConstants.MASH_ALLAH} 12k+",
+          icon: Icon(Icons.favorite_border,color: ColorPalate.greyColor,size: 24.sp),
+          onPressed: () {  },
+        ),
 
-            ClipRRect(
-              borderRadius: radiusCircle,
-              child: Material(
-                color: Colors.transparent,
-                child: IconButton(
-                    onPressed: (){},
-                    splashColor: ColorPalate.redColor,
-                    icon: Icon(Icons.favorite_border,color: ColorPalate.greyColor,size: 24.sp)
-                ),
-              ),
-            ),
-
-            Text("${TextConstants.MASH_ALLAH} 12k+",style: CustomTextStyles.statisticsTextStyle,)
-
-          ],
+        StatisticButton(
+          text: "${TextConstants.LIKE} 15k+",
+          icon: Icon(Icons.thumb_up_alt_outlined,color: ColorPalate.greyColor,size: 24.sp),
+          onPressed: () {  },
         ),
 
 
-
-        Column(
-          crossAxisAlignment: crossCenter,
-          mainAxisAlignment: mainCenter,
-          children: [
-
-            ClipRRect(
-              borderRadius: radiusCircle,
-              child: Material(
-                color: Colors.transparent,
-                child: IconButton(
-                    onPressed: (){},
-                    splashColor: ColorPalate.redColor,
-                    icon: Icon(Icons.thumb_up_alt_outlined,color: ColorPalate.greyColor,size: 24.sp)
-                ),
-              ),
-            ),
-
-            Text("${TextConstants.LIKE} 15k+",style: CustomTextStyles.statisticsTextStyle,)
-
-          ],
+        StatisticButton(
+          text: TextConstants.SHARE,
+          icon: Icon(Icons.share,color: ColorPalate.greyColor,size: 24.sp),
+          onPressed: () {  },
         ),
 
-
-
-        Column(
-          crossAxisAlignment: crossCenter,
-          mainAxisAlignment: mainCenter,
-          children: [
-
-
-            ClipRRect(
-              borderRadius: radiusCircle,
-              child: Material(
-                color: Colors.transparent,
-                child: IconButton(
-                    onPressed: (){},
-                    splashColor: ColorPalate.redColor,
-                    icon: Icon(Icons.share,color: ColorPalate.greyColor,size: 24.sp)
-                ),
-              ),
-            ),
-
-
-            Text(TextConstants.SHARE,style: CustomTextStyles.statisticsTextStyle,)
-
-          ],
+        StatisticButton(
+          text: TextConstants.REPORT,
+          icon: Icon(Icons.flag_outlined,color: ColorPalate.greyColor,size: 24.sp),
+          onPressed: () {  },
         ),
-
-
-        Column(
-          crossAxisAlignment: crossCenter,
-          mainAxisAlignment: mainCenter,
-          children: [
-
-            ClipRRect(
-              borderRadius: radiusCircle,
-              child: Material(
-                color: Colors.transparent,
-                child: IconButton(
-                    onPressed: (){},
-                    splashColor: ColorPalate.redColor,
-                    icon: Icon(Icons.flag_outlined,color: ColorPalate.greyColor,size: 24.sp)
-                ),
-              ),
-            ),
-
-            Text(TextConstants.REPORT,style: CustomTextStyles.statisticsTextStyle,)
-
-          ],
-        ),
-
-
-
 
       ],
     );

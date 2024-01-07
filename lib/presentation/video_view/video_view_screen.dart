@@ -96,19 +96,18 @@ class VideoViewScreen extends HookConsumerWidget {
                         Row(
                           children: [
 
-                            Text(
-                              "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
-                              style: CustomTextStyles.viewsAndPublishedStyle,
+                            CustomTextWidget(
+                             text: "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
                             ),
 
 
                             gap12,
 
-                            Text(
-                              videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
+                            CustomTextWidget(
+                             text: videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
                               timeago.format( videoPlayerState.videoRes!.results[videoIndex].createdAt.subtract(const Duration(minutes: 1))):"",
-                              style: CustomTextStyles.viewsAndPublishedStyle,
                             ),
+
                           ],
                         ),
 
@@ -141,6 +140,7 @@ class VideoViewScreen extends HookConsumerWidget {
                   Divider(color: ColorPalate.greyColor),
 
 
+                  // Comment section in video view screen
                   Padding(
                     padding: paddingH12,
                     child: const CommentsWidget(),
@@ -157,6 +157,8 @@ class VideoViewScreen extends HookConsumerWidget {
           ),
         ),
 
+        //Will pop function is called when
+        //The user would like to pop screen
         onWillPop: ()async{
           videoPlayerCtrl.videoStateUpdate(videoIsPlay: false);
           return true;

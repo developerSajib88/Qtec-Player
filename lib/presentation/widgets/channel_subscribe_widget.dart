@@ -1,4 +1,6 @@
 import 'package:qtec_player/data/model/video_res.dart';
+import 'package:qtec_player/presentation/widgets/channel_image_view_widget.dart';
+import 'package:qtec_player/presentation/widgets/custom_text_widget.dart';
 import 'package:qtec_player/utils/utils.dart';
 class ChannelSubscribeWidget extends HookConsumerWidget {
   final int? channelId;
@@ -22,20 +24,9 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
       child: Row(
         children: [
 
-          ClipRRect(
-            borderRadius: radiusCircle,
-            child: FadeInImage.assetNetwork(
-              width: 45.w,
-              height: 45.w,
-              image: channelImageUri ?? "",
-              fit: BoxFit.cover,
-              placeholder: "",
-              placeholderFit: BoxFit.cover,
-              fadeInDuration: const Duration(milliseconds: 500),
-              fadeOutDuration: const Duration(milliseconds: 1000),
-              placeholderErrorBuilder: (context,_,stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
-              imageErrorBuilder: (context,_, stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
-            ),
+          // Channel logo or Image widget
+          ChannelImageViewWidget(
+            imageUrl: channelImageUri ?? "",
           ),
 
 
@@ -65,9 +56,8 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
                 ],
               ),
 
-              Text(
-                "$totalSubscriber ${TextConstants.SUBSCRIBERS}",
-                style: CustomTextStyles.viewsAndPublishedStyle,
+              CustomTextWidget(
+                text: "$totalSubscriber ${TextConstants.SUBSCRIBERS}",
               ),
 
 

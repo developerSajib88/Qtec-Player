@@ -1,3 +1,5 @@
+import 'package:qtec_player/presentation/widgets/channel_image_view_widget.dart';
+import 'package:qtec_player/presentation/widgets/custom_text_widget.dart';
 import 'package:qtec_player/presentation/widgets/loader/thumbnail_loader.dart';
 import 'package:qtec_player/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -76,20 +78,9 @@ class VideoItemView extends HookWidget{
               mainAxisAlignment: mainStart,
               children: [
 
-                ClipRRect(
-                  borderRadius: radiusCircle,
-                  child: FadeInImage.assetNetwork(
-                    width: 45.w,
-                    height: 45.w,
-                    image: channelImageUri ?? "",
-                    fit: BoxFit.cover,
-                    placeholder: "",
-                    placeholderFit: BoxFit.cover,
-                    fadeInDuration: const Duration(milliseconds: 500),
-                    fadeOutDuration: const Duration(milliseconds: 1000),
-                    placeholderErrorBuilder: (context,_,stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
-                    imageErrorBuilder: (context,_, stackTrace) => Icon(Icons.play_circle_outline,color: ColorPalate.redColor,size: 45.sp,),
-                  ),
+                // Channel logo or Image widget
+                ChannelImageViewWidget(
+                  imageUrl: channelImageUri ?? "",
                 ),
 
                 gap12,
@@ -110,17 +101,17 @@ class VideoItemView extends HookWidget{
                       Row(
                         children: [
 
-                          Text(
-                            "${totalVideoView ?? ""} views",
-                            style: CustomTextStyles.viewsAndPublishedStyle,
+                          // Total view text widget
+                          CustomTextWidget(
+                           text: "${totalVideoView ?? ""} views",
                           ),
 
 
                           gap12,
 
-                          Text(
-                            publishedDate != null ?  timeago.format(publishedDate!.subtract(const Duration(minutes: 1))):"",
-                            style: CustomTextStyles.viewsAndPublishedStyle,
+                          // Published time text widget
+                          CustomTextWidget(
+                           text: publishedDate != null ?  timeago.format(publishedDate!.subtract(const Duration(minutes: 1))):"",
                           ),
                         ],
                       ),
