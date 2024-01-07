@@ -66,7 +66,7 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
               ),
 
               Text(
-                "$totalSubscriber Subscribers",
+                "$totalSubscriber ${TextConstants.SUBSCRIBERS}",
                 style: CustomTextStyles.viewsAndPublishedStyle,
               ),
 
@@ -80,7 +80,7 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
           ElevatedButton.icon(
             onPressed: () {  },
             icon: Icon(Icons.add,size: 18.sp,),
-            label: Text("Subscribe",style: CustomTextStyles.titleTextStyle),
+            label: Text(TextConstants.SUBSCRIBE,style: CustomTextStyles.titleTextStyle),
             style: ElevatedButton.styleFrom(backgroundColor: ColorPalate.redColor),
           )
 

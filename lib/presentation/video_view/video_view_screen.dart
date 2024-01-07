@@ -1,4 +1,5 @@
 import 'package:qtec_player/core/dependecny_injection/dependency_injection.dart';
+import 'package:qtec_player/presentation/widgets/comments_widget.dart';
 import 'package:qtec_player/presentation/widgets/video_player/video_player_widget.dart';
 import 'package:qtec_player/presentation/widgets/widget.dart';
 import 'package:qtec_player/utils/utils.dart';
@@ -26,123 +27,131 @@ class VideoViewScreen extends HookConsumerWidget {
           height: 1.sh,
           color: ColorPalate.defaultBlack,
           child: SafeArea(
-            child: Column(
-              children: [
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
 
-                if(videoPlayerState.videoIsPortrait == false)
-                const CustomAppBar(),
+                  if(videoPlayerState.videoIsPortrait == false)
+                  const CustomAppBar(),
 
-                Visibility(
-                  visible: videoPlayerState.videoIsPlay == false,
+                  Visibility(
+                    visible: videoPlayerState.videoIsPlay == false,
 
-                  replacement: VideoPlayerWidget(
-                    isLive: videoPlayerState.videoRes?.results[videoIndex].isLive ?? false,
-                    videoUrl: videoPlayerState.videoRes?.results[videoIndex].manifest ?? "",
+                    replacement: VideoPlayerWidget(
+                      isLive: videoPlayerState.videoRes?.results[videoIndex].isLive ?? false,
+                      videoUrl: videoPlayerState.videoRes?.results[videoIndex].manifest ?? "",
+                    ),
+
+                    child: InkWell(
+                      onTap: ()=>videoPlayerCtrl.videoStateUpdate(videoIsPlay: true),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Hero(
+                            tag: videoIndex.toString(),
+                            child: FadeInImage.assetNetwork(
+                              width: 1.sw,
+                              height: 265.h,
+                              image: videoPlayerState.videoRes?.results[videoIndex].thumbnail ?? "",
+                              fit: BoxFit.cover,
+                              placeholder: "",
+                              placeholderFit: BoxFit.cover,
+                              fadeInDuration: const Duration(milliseconds: 500),
+                              fadeOutDuration: const Duration(milliseconds: 1000),
+                              placeholderErrorBuilder: (context,_,stackTrace) => const ThumbnailLoader(),
+                              imageErrorBuilder: (context,_, stackTrace) => const ThumbnailLoader(),
+                            ),
+                          ),
+
+
+                          Container(
+                            width: 40.w,
+                            height: 40.w,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: ColorPalate.blackColor.withOpacity(0.7)
+                            ),
+                            child: Icon(Icons.play_arrow,color: ColorPalate.defaultWhite,),
+                          )
+
+
+                        ],
+                      ),
+                    ),
                   ),
 
-                  child: InkWell(
-                    onTap: ()=>videoPlayerCtrl.videoStateUpdate(videoIsPlay: true),
-                    child: Stack(
-                      alignment: Alignment.center,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                    child: Column(
+                      crossAxisAlignment: crossStart,
                       children: [
-                        Hero(
-                          tag: videoIndex.toString(),
-                          child: FadeInImage.assetNetwork(
-                            width: 1.sw,
-                            height: 265.h,
-                            image: videoPlayerState.videoRes?.results[videoIndex].thumbnail ?? "",
-                            fit: BoxFit.cover,
-                            placeholder: "",
-                            placeholderFit: BoxFit.cover,
-                            fadeInDuration: const Duration(milliseconds: 500),
-                            fadeOutDuration: const Duration(milliseconds: 1000),
-                            placeholderErrorBuilder: (context,_,stackTrace) => const ThumbnailLoader(),
-                            imageErrorBuilder: (context,_, stackTrace) => const ThumbnailLoader(),
-                          ),
+                        Text(
+                          videoPlayerState.videoRes?.results[videoIndex].title ?? "",
+                          style: CustomTextStyles.titleTextStyle,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+
+                        Row(
+                          children: [
+
+                            Text(
+                              "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
+                              style: CustomTextStyles.viewsAndPublishedStyle,
+                            ),
+
+
+                            gap12,
+
+                            Text(
+                              videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
+                              timeago.format( videoPlayerState.videoRes!.results[videoIndex].createdAt.subtract(const Duration(minutes: 1))):"",
+                              style: CustomTextStyles.viewsAndPublishedStyle,
+                            ),
+                          ],
                         ),
 
 
-                        Container(
-                          width: 40.w,
-                          height: 40.w,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorPalate.blackColor.withOpacity(0.7)
-                          ),
-                          child: Icon(Icons.play_arrow,color: ColorPalate.defaultWhite,),
-                        )
+                       // MASH ALLAH, LIKE, SHARE AND REPORT WIDGET
+                       const VideoStatisticWidget(
+                          videoID: 0,
+                          mashAllah: "12k",
+                          like: "15k",
+                       ),
 
+
+                       gap12,
+
+                       //For channel information
+                       // As like Channel name,image and verified channel and total subscribers button
+                       ChannelSubscribeWidget(
+                           channelId: videoPlayerState.videoRes?.results[videoIndex].channelId,
+                           totalSubscriber: videoPlayerState.videoRes?.results[videoIndex].channelSubscriber,
+                           channelName: videoPlayerState.videoRes?.results[videoIndex].channelName,
+                           channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage,
+                           channelIsVerified: videoPlayerState.videoRes?.results[videoIndex].isVerified,
+                       ),
 
                       ],
                     ),
                   ),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                  child: Column(
-                    crossAxisAlignment: crossStart,
-                    children: [
-                      Text(
-                        videoPlayerState.videoRes?.results[videoIndex].title ?? "",
-                        style: CustomTextStyles.titleTextStyle,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-
-                      Row(
-                        children: [
-
-                          Text(
-                            "${videoPlayerState.videoRes?.results[videoIndex].viewers ?? ""} views",
-                            style: CustomTextStyles.viewsAndPublishedStyle,
-                          ),
 
 
-                          gap12,
-
-                          Text(
-                            videoPlayerState.videoRes?.results[videoIndex].createdAt != null ?
-                            timeago.format( videoPlayerState.videoRes!.results[videoIndex].createdAt.subtract(const Duration(minutes: 1))):"",
-                            style: CustomTextStyles.viewsAndPublishedStyle,
-                          ),
-                        ],
-                      ),
+                  Divider(color: ColorPalate.greyColor),
 
 
-                     // MASH ALLAH, LIKE, SHARE AND REPORT WIDGET
-                     const VideoStatisticWidget(
-                        videoID: 0,
-                        mashAllah: "12k",
-                        like: "15k",
-                     ),
-
-
-                     gap12,
-
-                     //For channel information
-                     // As like Channel name,image and verified channel and total subscribers button
-                     ChannelSubscribeWidget(
-                         channelId: videoPlayerState.videoRes?.results[videoIndex].channelId,
-                         totalSubscriber: videoPlayerState.videoRes?.results[videoIndex].channelSubscriber,
-                         channelName: videoPlayerState.videoRes?.results[videoIndex].channelName,
-                         channelImageUri: videoPlayerState.videoRes?.results[videoIndex].channelImage,
-                         channelIsVerified: videoPlayerState.videoRes?.results[videoIndex].isVerified,
-                     ),
-
-                    ],
-                  ),
-                ),
-
-
-                Divider(color: ColorPalate.greyColor),
+                  Padding(
+                    padding: paddingH12,
+                    child: const CommentsWidget(),
+                  )
 
 
 
 
 
-              ],
+                ],
+              ),
             ),
 
           ),
