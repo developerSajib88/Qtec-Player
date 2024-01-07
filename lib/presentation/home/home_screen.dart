@@ -30,29 +30,36 @@ class HomeScreen extends HookConsumerWidget {
               const CustomAppBar(),
 
               Expanded(
-                  child: Visibility(
-                    visible: videoPlayerState.videoRes != null &&
-                        videoPlayerState.dataIsLoading == false,
-                    replacement: const HomePageLoader(),
-                    child: ListView.builder(
-                      itemCount: videoPlayerState.videoRes?.results.length,
-                        itemBuilder: (BuildContext context, index)=>
-                            InkWell(
-                              onTap: ()=>context.push("${HomeScreen.path}/${VideoViewScreen.path}/$index"),
-                              child: Hero(
-                                tag: index.toString(),
-                                child: VideoItemView(
-                                  thumbnailUri: videoPlayerState.videoRes?.results[index].thumbnail,
-                                  videoTitle: videoPlayerState.videoRes?.results[index].title,
-                                  channelImageUri: videoPlayerState.videoRes?.results[index].channelImage,
-                                  totalVideoView: videoPlayerState.videoRes?.results[index].viewers,
-                                  videoDuration: videoPlayerState.videoRes?.results[index].duration,
-                                  publishedDate: videoPlayerState.videoRes?.results[index].createdAt,
-                                )
-                              ),
-                              ),
-                            )
-                    ),
+                  child: RefreshIndicator(
+                    onRefresh: ()async=> videoPlayerCtrl.init(),
+                    color: ColorPalate.redColor,
+                    displacement: 25.h,
+                    backgroundColor: ColorPalate.defaultWhite,
+                    strokeWidth: 2.w,
+                    child: Visibility(
+                      visible: videoPlayerState.videoRes != null &&
+                          videoPlayerState.dataIsLoading == false,
+                      replacement: const HomePageLoader(),
+                      child: ListView.builder(
+                        itemCount: videoPlayerState.videoRes?.results.length,
+                          itemBuilder: (BuildContext context, index)=>
+                              InkWell(
+                                onTap: ()=>context.push("${HomeScreen.path}/${VideoViewScreen.path}/$index"),
+                                child: Hero(
+                                  tag: index.toString(),
+                                  child: VideoItemView(
+                                    thumbnailUri: videoPlayerState.videoRes?.results[index].thumbnail,
+                                    videoTitle: videoPlayerState.videoRes?.results[index].title,
+                                    channelImageUri: videoPlayerState.videoRes?.results[index].channelImage,
+                                    totalVideoView: videoPlayerState.videoRes?.results[index].viewers,
+                                    videoDuration: videoPlayerState.videoRes?.results[index].duration,
+                                    publishedDate: videoPlayerState.videoRes?.results[index].createdAt,
+                                  )
+                                ),
+                                ),
+                              )
+                      ),
+                  ),
                   )
 
             ],
