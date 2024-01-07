@@ -48,16 +48,12 @@ class HomeScreen extends HookConsumerWidget {
                                   totalVideoView: videoPlayerState.videoRes?.results[index].viewers,
                                   videoDuration: videoPlayerState.videoRes?.results[index].duration,
                                   publishedDate: videoPlayerState.videoRes?.results[index].createdAt,
-                                ).animate().slideX(
-                                  begin: 3,
-                                  end: 0,
-                                  duration: const Duration(milliseconds: 500)
-                                ),
+                                )
+                              ),
                               ),
                             )
                     ),
                   )
-              )
 
             ],
           ),

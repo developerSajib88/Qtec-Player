@@ -33,7 +33,7 @@ class SplashScreen extends HookConsumerWidget {
         child: Center(
           child: Icon(
             Icons.play_circle_outline,
-            size: 70.sp,
+            size: 100.sp,
             color: ColorPalate.redColor,
           ),
         ),

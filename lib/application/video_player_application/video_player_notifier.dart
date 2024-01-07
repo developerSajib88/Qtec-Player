@@ -12,8 +12,11 @@ class VideoPlayerNotifier extends StateNotifier<VideoPlayerState>{
   VideoPlayerDomain videoPlayerDomain;
   VideoPlayerNotifier({required this.videoPlayerDomain}):super(VideoPlayerState.init());
 
+  ///This method i am create for Every state update
   void _stateMaker(VideoPlayerState newState)=> state = newState;
 
+  /// This is an initial function
+  /// This method is called after when riverpod reference state create.
   void init()async{
     _stateMaker(state.copyWith(dataIsLoading: true));
     try{
@@ -28,5 +31,17 @@ class VideoPlayerNotifier extends StateNotifier<VideoPlayerState>{
       log(error.toString());
     }
   }
+
+  /// This function is called video state update
+  void videoStateUpdate({required bool videoIsPlay}){
+    _stateMaker(state.copyWith(videoIsPlay: videoIsPlay));
+  }
+
+
+  /// This function is called for video rotation mode update
+  void videoModeUpdate({required bool videoIsPortrait}){
+    _stateMaker(state.copyWith(videoIsPortrait: videoIsPortrait));
+  }
+
 
 }

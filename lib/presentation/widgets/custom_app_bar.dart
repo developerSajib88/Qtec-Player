@@ -14,7 +14,7 @@ class CustomAppBar extends HookWidget {
 
           Icon(
             Icons.play_circle_outline,
-            size: 25.sp,
+            size: 35.sp,
             color: ColorPalate.redColor,
           ),
 
@@ -22,7 +22,7 @@ class CustomAppBar extends HookWidget {
 
           Text(
               TextConstants.TRENDING_VIDEOS,
-              style: TextStyle(color: Colors.white,fontSize: 15.sp,fontWeight: FontWeight.w400)
+              style: TextStyle(color: Colors.white,fontSize: 18.sp,fontWeight: FontWeight.bold)
           )
 
         ],
