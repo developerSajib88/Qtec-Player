@@ -14,7 +14,6 @@ class ThumbnailLoader extends HookWidget {
     ).animate(onPlay: (controller) => controller.repeat())
         .shimmer(
         color: ColorPalate.blackColor.withOpacity(0.4),
-        // delay: Duration(microseconds: 400),
         duration: const Duration(seconds: 1));
   }
 }
