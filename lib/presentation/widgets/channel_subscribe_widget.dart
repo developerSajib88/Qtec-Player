@@ -40,10 +40,6 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
               Row(
                 children: [
                   Text(
-                    // channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
-                    // "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
-                    // "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
-                    //     "One Ummah" : "Sayed Tv Ts",
                     channelName ?? "",
                     style: CustomTextStyles.channelNameTextStyle,
                   ),
