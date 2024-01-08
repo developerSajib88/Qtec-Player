@@ -9,7 +9,7 @@ Dive into an awesome video streaming experience with our Flutter Video Player Ap
 
 ![App Screenshot](https://github.com/developerSajib88/Qtec-Player/blob/main/assets/documents/screen_1.png) | ![App Screenshot](https://github.com/developerSajib88/Qtec-Player/blob/main/assets/documents/screen_2.png) | ![App Screenshot](https://github.com/developerSajib88/Qtec-Player/blob/main/assets/documents/screen_3.png)
 --- | --- | ---
-*Screen 1* | *Screen 2* | *Screen 3*
+*Screen 3* | *Screen 2* | *Screen 1*
 
 ## Clean Architecture
 
