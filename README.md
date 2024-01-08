@@ -63,7 +63,7 @@ In the project, the following packages are utilized to enhance the functionality
 In summary, these packages were carefully selected and integrated into the project to address specific needs such as responsive design, navigation, animations, state management, HTTP requests, design aesthetics, and time formatting. Each package plays a crucial role in enhancing the overall functionality, user experience, and maintainability of the Flutter Video Player App.
 
 ## 🚀 About Me
-Greetings! I'm Sajib Hasan, a dedicated Junior Software Engineer specializing in Flutter. With expertise in Python, Dart, I excel in crafting cross-platform applications and building robust backend services. My proficiency includes developing sleek and responsive user interfaces using Flutter, creating feature-rich Native Android and iOS applications, and designing efficient APIs with FastAPI. I am a problem solver, team player, and quick learner, committed to delivering high-quality code within deadlines. Let's collaborate to transform your ideas into innovative and functional solutions!
+Greetings! I'm Sajib Hasan, a dedicated Junior Software Engineer specializing in Flutter. With expertise in Python, Dart, I excel in crafting cross-platform applications and building robust backend services. My proficiency includes developing sleek and responsive user interfaces using Flutter. I am a problem solver, team player, and quick learner, committed to delivering high-quality code within deadlines. Let's collaborate to transform your ideas into innovative and functional solutions!
 
 
 ## Support
