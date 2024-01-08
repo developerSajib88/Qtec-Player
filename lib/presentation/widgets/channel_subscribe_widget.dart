@@ -1,11 +1,10 @@
-import 'package:qtec_player/data/model/video_res.dart';
 import 'package:qtec_player/presentation/widgets/channel_image_view_widget.dart';
 import 'package:qtec_player/presentation/widgets/custom_text_widget.dart';
 import 'package:qtec_player/utils/utils.dart';
 class ChannelSubscribeWidget extends HookConsumerWidget {
   final int? channelId;
   final String? channelImageUri;
-  final ChannelName? channelName;
+  final String? channelName;
   final String? totalSubscriber;
   final bool? channelIsVerified;
   const ChannelSubscribeWidget({
@@ -41,10 +40,11 @@ class ChannelSubscribeWidget extends HookConsumerWidget {
               Row(
                 children: [
                   Text(
-                    channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
-                    "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
-                    "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
-                        "One Ummah" : "Sayed Tv Ts",
+                    // channelName == ChannelName.CHANNEL_NAME_ONE_UMMAH ?
+                    // "One Ummah +" : channelName == ChannelName.SAKIB_LIVE_TV ?
+                    // "Sakib Live Tv" : channelName == ChannelName.ONE_UMMAH ?
+                    //     "One Ummah" : "Sayed Tv Ts",
+                    channelName ?? "",
                     style: CustomTextStyles.channelNameTextStyle,
                   ),
 

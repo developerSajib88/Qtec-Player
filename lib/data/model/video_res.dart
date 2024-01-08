@@ -96,10 +96,10 @@ class Result {
   final String? liveManifest;
   final bool isLive;
   final String channelImage;
-  final ChannelName channelName;
+  final String channelName;
   final ChannelUsername? channelUsername;
   final bool isVerified;
-  final ChannelSlug channelSlug;
+  final String channelSlug;
   final String channelSubscriber;
   final int channelId;
   final Type type;
@@ -143,10 +143,10 @@ class Result {
     String? liveManifest,
     bool? isLive,
     String? channelImage,
-    ChannelName? channelName,
+    String? channelName,
     ChannelUsername? channelUsername,
     bool? isVerified,
-    ChannelSlug? channelSlug,
+    String? channelSlug,
     String? channelSubscriber,
     int? channelId,
     Type? type,
@@ -194,10 +194,10 @@ class Result {
     liveManifest: json["live_manifest"],
     isLive: json["is_live"],
     channelImage: json["channel_image"],
-    channelName: channelNameValues.map[json["channel_name"]]!,
+    channelName: json["channel_name"],
     channelUsername: channelUsernameValues.map[json["channel_username"]],
     isVerified: json["is_verified"],
-    channelSlug: channelSlugValues.map[json["channel_slug"]]!,
+    channelSlug: json["channel_slug"],
     channelSubscriber: json["channel_subscriber"],
     channelId: json["channel_id"],
     type: typeValues.map[json["type"]]!,
@@ -218,10 +218,10 @@ class Result {
     "live_manifest": liveManifest,
     "is_live": isLive,
     "channel_image": channelImage,
-    "channel_name": channelNameValues.reverse[channelName],
+    "channel_name": channelName,
     "channel_username": channelUsernameValues.reverse[channelUsername],
     "is_verified": isVerified,
-    "channel_slug": channelSlugValues.reverse[channelSlug],
+    "channel_slug": channelSlug,
     "channel_subscriber": channelSubscriber,
     "channel_id": channelId,
     "type": typeValues.reverse[type],
@@ -231,44 +231,18 @@ class Result {
   };
 }
 
-enum ChannelName {
-  CHANNEL_NAME_ONE_UMMAH,
-  ONE_UMMAH,
-  SAKIB_LIVE_TV,
-  SAYED_TV_TS
-}
-
-final channelNameValues = EnumValues({
-  "One Ummah +": ChannelName.CHANNEL_NAME_ONE_UMMAH,
-  "One Ummah": ChannelName.ONE_UMMAH,
-  "Sakib Live TV": ChannelName.SAKIB_LIVE_TV,
-  "Sayed TV TS": ChannelName.SAYED_TV_TS
-});
-
-enum ChannelSlug {
-  ONE_UMMAH,
-  SAKIB_LIVE_TV,
-  SAYED_TV_TS,
-  TEST_FDF_F_DSFDS_SFSD_SD_SDF
-}
-
-final channelSlugValues = EnumValues({
-  "one-ummah": ChannelSlug.ONE_UMMAH,
-  "sakib-live-tv": ChannelSlug.SAKIB_LIVE_TV,
-  "sayed-tv-ts": ChannelSlug.SAYED_TV_TS,
-  "test-fdf-f-dsfds-sfsd-sd-sdf": ChannelSlug.TEST_FDF_F_DSFDS_SFSD_SD_SDF
-});
-
 enum ChannelUsername {
   SAKIBLIVETV,
   SDFSDF1,
-  SDFSDF1_5997
+  SDFSDF1_5997,
+  TESTJOYCHANNEL
 }
 
 final channelUsernameValues = EnumValues({
   "sakiblivetv": ChannelUsername.SAKIBLIVETV,
   "sdfsdf1": ChannelUsername.SDFSDF1,
-  "sdfsdf1_5997": ChannelUsername.SDFSDF1_5997
+  "sdfsdf1_5997": ChannelUsername.SDFSDF1_5997,
+  "testjoychannel": ChannelUsername.TESTJOYCHANNEL
 });
 
 enum ObjectType {
