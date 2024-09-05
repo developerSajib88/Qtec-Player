@@ -4,6 +4,7 @@ import 'package:qtec_player/application/app.dart';
 import 'package:qtec_player/core/dependecny_injection/dependency_injection.dart' as di;
 
 void main()async{
+  
   WidgetsFlutterBinding.ensureInitialized();
   /// Here I am intialize between domain and Infrastructure
   /// With get it dependency injector
